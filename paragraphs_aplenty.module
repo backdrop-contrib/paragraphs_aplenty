@@ -393,6 +393,8 @@ function _paragraphs_aplenty_preprocess_aplenty_accordion(&$variables) {
  */
 function _paragraphs_aplenty_preprocess_aplenty_accordion_item(&$variables) {
   $accordion_item = entity_metadata_wrapper('paragraphs_item', $variables['paragraphs_item']);
+  $item_id = $accordion_item->getIdentifier();
+  $variables['accordion_item_id'] = 'aplenty-accordion-item-' . $item_id;
 
   $variables['accordion_title'] = $accordion_item->field_aplenty_title->value();
 
