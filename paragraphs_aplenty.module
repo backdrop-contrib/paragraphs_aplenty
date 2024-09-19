@@ -525,11 +525,9 @@ function _paragraphs_aplenty_calculate_grid_column($paragraph) {
 function _paragraphs_aplenty_get_grid_width_class($paragraph) {
   $column_iteration = &backdrop_static('column_iteration_' . $paragraph->id());
   $grid_iteration = &backdrop_static('grid_iteration');
-  if (!isset($column_iteration)) {
+  // Reset the column and grid count if this is a new grid.
+  if (!isset($column_iteration) || $grid_iteration > 1) {
     $column_iteration = 1;
-  }
-  // Reset the grid count if this is a new grid.
-  if ($grid_iteration > 1) {
     $grid_iteration = 1;
   }
 
