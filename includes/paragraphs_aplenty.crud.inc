@@ -491,7 +491,7 @@ function paragraphs_aplenty_add_image_field($field_name, $bundle, $instance_over
         ),
       ),
       'settings' => array(
-        'file_directory' => 'aplenty-image',
+        'file_directory' => '',
         'file_extensions' => 'png gif jpg jpeg svg webm',
         'max_filesize' => '50 MB',
         'max_resolution' => '',
