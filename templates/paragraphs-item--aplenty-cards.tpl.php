@@ -3,12 +3,10 @@
   <?php print render($title_prefix); ?>
   <?php print render($title_suffix); ?>
   <div class="content"<?php print backdrop_attributes($content_attributes); ?>>
-    <div class="container-fluid">
-      <div class="row">
-        <?php foreach ($aplenty_cards as $card): ?>
+    <div class="row">
+      <?php foreach ($aplenty_cards as $card): ?>
         <?php print render($card); ?>
-        <?php endforeach; ?>
-      </div>
+      <?php endforeach; ?>
     </div>
   </div>
 
