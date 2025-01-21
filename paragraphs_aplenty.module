@@ -101,6 +101,7 @@ function _paragraphs_aplenty_preprocess_aplenty_media_list(&$variables) {
   foreach ($media_blocks as $key => $column_id) {
     $variables['aplenty_media_list'][] = $variables['content']['field_aplenty_paragraphs'][$key];
   }
+  $variables['aplenty_row_class'] = _paragraphs_aplenty_row_class();
 }
 
 /**
@@ -108,16 +109,8 @@ function _paragraphs_aplenty_preprocess_aplenty_media_list(&$variables) {
  */
 function _paragraphs_aplenty_preprocess_aplenty_media_block(&$variables) {
   $variables['classes_array'][] = 'aplenty-media_block';
-  $grid_prefix = settings_get('paragraphs_aplenty_grid_class_prefix', 'g-col');
-  $grid_breakpoint = settings_get('paragraphs_aplenty_grid_breakpoint', 'md');
-  if ($variables['paragraphs_item']->hostEntity()) {
-    $variables['elements']['#aplenty_width_class'] = "{$grid_prefix}-{$grid_breakpoint}-" . _paragraphs_aplenty_get_width_class($variables['paragraphs_item']->hostEntity(), 'field_aplenty_media_width');
-  }
-  if (empty($variables['elements']['#aplenty_width_class'])) {
-    $variables['elements']['#aplenty_width_class'] = "{$grid_prefix}-{$grid_breakpoint}-12";
-  }
-  $variables['classes_array'][] = "{$grid_prefix}-12";
-  $variables['classes_array'][] = $variables['elements']['#aplenty_width_class'];
+  $width_class = _paragraphs_aplenty_get_width_class($variables['paragraphs_item']->hostEntity(), 'field_aplenty_media_width');
+  _paragraphs_aplenty_preprocess_grid_column_prefixes($variables, $width_class);
 
   if ($variables['paragraphs_item']->hostEntity()) {
     $variables['elements']['#aplenty_media_class'] =  _paragraphs_aplenty_get_media_class($variables['paragraphs_item']->hostEntity());
@@ -134,16 +127,8 @@ function _paragraphs_aplenty_preprocess_aplenty_media_block(&$variables) {
  */
 function _paragraphs_aplenty_preprocess_aplenty_card(&$variables) {
   $variables['classes_array'][] = 'aplenty-card';
-  $grid_prefix = settings_get('paragraphs_aplenty_grid_class_prefix', 'g-col');
-  $grid_breakpoint = settings_get('paragraphs_aplenty_grid_breakpoint', 'md');
-  if ($variables['paragraphs_item']->hostEntity()) {
-    $variables['elements']['#aplenty_width_class'] = "{$grid_prefix}-{$grid_breakpoint}-" . _paragraphs_aplenty_get_width_class($variables['paragraphs_item']->hostEntity(), 'field_aplenty_card_width');
-  }
-  if (empty($variables['elements']['#aplenty_width_class'])) {
-    $variables['elements']['#aplenty_width_class'] = "{$grid_prefix}-{$grid_breakpoint}-12";
-  }
-  $variables['classes_array'][] = "{$grid_prefix}-12";
-  $variables['classes_array'][] = $variables['elements']['#aplenty_width_class'];
+  $width_class = _paragraphs_aplenty_get_width_class($variables['paragraphs_item']->hostEntity(), 'field_aplenty_card_width');
+  _paragraphs_aplenty_preprocess_grid_column_prefixes($variables, $width_class);
 
   $variables['content']['field_aplenty_image'][0]['#item']['attributes']['class'][] = 'aplenty-card-img';
   $paragraph = $variables['paragraphs_item'];
@@ -190,6 +175,7 @@ function _paragraphs_aplenty_preprocess_aplenty_cards(&$variables) {
     // the field wrapper.
     $variables['aplenty_cards'][] = $variables['content']['field_aplenty_paragraphs'][$key];
   }
+  $variables['aplenty_row_class'] = _paragraphs_aplenty_row_class();
 }
 
 /**
@@ -349,38 +335,23 @@ function _paragraphs_aplenty_preprocess_aplenty_grid(&$variables) {
     // the field wrapper.
     $variables['aplenty_columns'][] = $variables['content']['field_aplenty_paragraphs'][$key];
   }
+  $variables['aplenty_row_class'] = _paragraphs_aplenty_row_class();
 }
 
 /**
  * Preprocessing code for the Column bundle.
  */
 function _paragraphs_aplenty_preprocess_aplenty_column(&$variables) {
-  $grid_prefix = settings_get('paragraphs_aplenty_grid_class_prefix', 'g-col');
-  $grid_breakpoint = settings_get('paragraphs_aplenty_grid_breakpoint', 'md');
-  if ($variables['paragraphs_item']->hostEntity()) {
-    $variables['elements']['#aplenty_width_class'] = "{$grid_prefix}-{$grid_breakpoint}-" . _paragraphs_aplenty_get_grid_width_class($variables['paragraphs_item']->hostEntity());
-  }
-  if (empty($variables['elements']['#aplenty_width_class'])) {
-    $variables['elements']['#aplenty_width_class'] = "{$grid_prefix}-{$grid_breakpoint}-12";
-  }
-  $variables['classes_array'][] = "{$grid_prefix}-12";
-  $variables['classes_array'][] = $variables['elements']['#aplenty_width_class'];
+  $width_class = _paragraphs_aplenty_get_grid_width_class($variables['paragraphs_item']->hostEntity());
+  _paragraphs_aplenty_preprocess_grid_column_prefixes($variables, $width_class);
 }
 
 /**
  * Preprocessing code for the Column Wrapper bundle.
  */
 function _paragraphs_aplenty_preprocess_aplenty_column_wrapper(&$variables) {
-  $grid_prefix = settings_get('paragraphs_aplenty_grid_class_prefix', 'g-col');
-  $grid_breakpoint = settings_get('paragraphs_aplenty_grid_breakpoint', 'md');
-  if ($variables['paragraphs_item']->hostEntity()) {
-    $variables['elements']['#aplenty_width_class'] = "{$grid_prefix}-{$grid_breakpoint}-" . _paragraphs_aplenty_get_grid_width_class($variables['paragraphs_item']->hostEntity());
-  }
-  if (empty($variables['elements']['#aplenty_width_class'])) {
-    $variables['elements']['#aplenty_width_class'] = "{$grid_prefix}-{$grid_breakpoint}-12";
-  }
-  $variables['classes_array'][] = "{$grid_prefix}-12";
-  $variables['classes_array'][] = $variables['elements']['#aplenty_width_class'];
+  $width_class = _paragraphs_aplenty_get_grid_width_class($variables['paragraphs_item']->hostEntity());
+  _paragraphs_aplenty_preprocess_grid_column_prefixes($variables, $width_class);
 
   $variables['cards'] = array();
   if (empty($variables['content']['field_aplenty_paragraphs'])) {
@@ -551,6 +522,32 @@ function _paragraphs_aplenty_get_grid_width_class($paragraph) {
   $column_iteration++;
 
   return _paragraphs_aplenty_fraction_to_class($numerator, $max_columns);
+}
+
+/**
+ * Get the row class
+ *
+ * @return string
+ */
+function _paragraphs_aplenty_row_class() {
+  $row_class = 'row';
+  if (settings_get('paragraphs_aplenty_grid_class_prefix', 'g-col') == 'g-col') {
+    $row_class = 'grid';
+  }
+  return $row_class;
+}
+
+/**
+ * Add the grid column prefixes
+ *
+ * @param $variables
+ * @param string $width_class
+ */
+function _paragraphs_aplenty_preprocess_grid_column_prefixes(&$variables, $width_class) {
+  $grid_prefix = settings_get('paragraphs_aplenty_grid_class_prefix', 'g-col');
+  $grid_breakpoint = settings_get('paragraphs_aplenty_grid_breakpoint', 'md');
+  $variables['classes_array'][] = "{$grid_prefix}-12";
+  $variables['classes_array'][] = "{$grid_prefix}-{$grid_breakpoint}-{$width_class}";
 }
 
 /**

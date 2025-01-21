@@ -3,7 +3,7 @@
   <?php print render($title_prefix); ?>
   <?php print render($title_suffix); ?>
   <div class="content"<?php print backdrop_attributes($content_attributes); ?>>
-    <div class="row grid">
+    <div class="<?php print $aplenty_row_class; ?>">
       <?php foreach ($aplenty_columns as $column): ?>
         <?php print render($column); ?>
       <?php endforeach; ?>

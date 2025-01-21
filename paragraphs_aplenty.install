@@ -379,7 +379,7 @@ function _paragraphs_aplenty_card() {
 }
 
 /**
- * Grid (Row of columns), columns, and column wrapper paragraph types
+ * Grid (Columns), column, and column wrapper paragraph types
  *
  * Uses the core grid, similar to Bootstrap v3.x.
  * @see https://getbootstrap.com/docs/3.4/css/#grid
@@ -422,11 +422,11 @@ function _paragraphs_aplenty_grid() {
     'required' => TRUE,
   ));
 
-  // Install the Grid (aka "Row of columns") paragraph type.
+  // Install the Grid (aka "Columns") paragraph type.
   $bundle = 'aplenty_grid';
   $settings = array(
-    'name' => 'Row of columns',
-    'label' => 'Row of columns',
+    'name' => 'Columns',
+    'label' => 'Columns',
     'description' => 'This is a container of columns displayed in a row. If there are more columns assigned to a row than allowed, the extra columns will wrap to the next line.',
   );
   paragraphs_aplenty_create_bundle($bundle, $settings);
@@ -753,10 +753,10 @@ function paragraphs_aplenty_update_1005() {
 }
 
 /**
- * Update help text for the Row of Columns.
+ * Update help text for the Columns.
  */
 function paragraphs_aplenty_update_1006() {
-  // Row of columns
+  // Columns
   $config = config('field.instance.paragraphs_item.aplenty_grid.field_aplenty_column_width');
   if ($config->get('description') == 'This sets the width of the columns in this row, and the number of columns per row. Any extra columns assigned will not be displayed.') {
     $config->set('description', 'This sets the width of the columns in a row (the number of columns per row). Any extra columns assigned will wrap to the next line.');
@@ -766,6 +766,21 @@ function paragraphs_aplenty_update_1006() {
   $config = config('paragraphs.type.aplenty_grid');
   if ($config->get('description') == 'This is a container of columns displayed in a row. If there are more columns assigned to a row than allowed, the extra columns will not be displayed.') {
     $config->set('description', 'This is a container of columns displayed in a row. If there are more items assigned to a row than columns selected, the extra columns will wrap to the next line.');
+  }
+  $config->save();
+
+}
+
+/**
+ * Change "Row of columns" to "Columns".
+ */
+function paragraphs_aplenty_update_1007() {
+  $config = config('paragraphs.type.aplenty_grid');
+  if ($config->get('name') == 'Row of columns') {
+    $config->set('name', 'Columns');
+  }
+  if ($config->get('label') == 'Row of columns') {
+    $config->set('label', 'Columns');
   }
   $config->save();
 
