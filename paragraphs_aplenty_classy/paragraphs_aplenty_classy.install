@@ -81,8 +81,8 @@ function paragraphs_aplenty_classy_install() {
 
   $config_sets = config('classy_paragraphs_ui.sets');
   foreach ($sets as $set_key => $set_label) {
-    $config_sets->set('pa--' . $set_key, array(
-      'name' => 'pa--' . $set_key,
+    $config_sets->set('aplenty--' . $set_key, array(
+      'name' => 'aplenty--' . $set_key,
       'label' => $set_label,
     ));
   }
@@ -91,11 +91,11 @@ function paragraphs_aplenty_classy_install() {
   $config_classes = config('classy_paragraphs_ui.classes');
   foreach ($styles as $set => $classes) {
     foreach ($classes as $class_key => $class_label) {
-      $config_classes->set('pa--' . $class_key, array(
-        'name' => 'pa--' . $class_key,
+      $config_classes->set($class_key, array(
+        'name' => $class_key,
         'label' => $class_label,
         'sets' => array(
-          'pa--' . $set => 'pa--' . $set,
+          'aplenty--' . $set => 'aplenty--' . $set,
         ),
       ));
     }
@@ -108,7 +108,7 @@ function paragraphs_aplenty_classy_install() {
       $instance_overrides = array(
         'label' => $sets[$set_key],
         'settings' => array(
-          'classy_paragraphs_set' => 'pa--' . $set_key,
+          'classy_paragraphs_set' => 'aplenty--' . $set_key,
           'classy_paragraphs_set_include' => 1,
         ),
       );
@@ -126,9 +126,9 @@ function paragraphs_aplenty_classy_install() {
  * @param string $bundle
  */
 function _paragraphs_aplenty_classy_add_field_group($fields, $bundle) {
-  $config = config('field_group.field_group.paragraphs_item.' . $bundle . '.form.group_pa_styles');
+  $config = config('field_group.field_group.paragraphs_item.' . $bundle . '.form.group_aplenty_styles');
   $config->setData(array(
-    'group_name' => 'group_pa_styles',
+    'group_name' => 'group_aplenty_styles',
     'entity_type' => 'paragraphs_item',
     'bundle' => $bundle,
     'mode' => 'form',
@@ -143,7 +143,7 @@ function _paragraphs_aplenty_classy_add_field_group($fields, $bundle) {
       'instance_settings' => array(
         'required_fields' => 1,
         'id' => '',
-        'classes' => 'group-pa-styles',
+        'classes' => 'group-aplenty-styles',
         'description' => '',
         'label_element' => 'span',
       ),
@@ -312,7 +312,7 @@ function _paragraphs_aplenty_classy_styles() {
       'w-full' => 'Full'
     ),
     'margin' => array(
-      'm-none' => 'None',
+      'm-none' => 'No margin',
       'm-tb-sm' => 'Top and Bottom Small',
       'm-tb-md' => 'Top and Bottom Medium',
       'm-tb-lg' => 'Top and Bottom Large',
@@ -324,7 +324,7 @@ function _paragraphs_aplenty_classy_styles() {
       'm-b-lg' => 'Bottom Large',
     ),
     'padding' => array(
-      'p-none' => 'None',
+      'p-none' => 'No padding',
       'p-tb-sm' => 'Top and Bottom Small',
       'p-tb-md' => 'Top and Bottom Medium',
       'p-tb-lg' => 'Top and Bottom Large',

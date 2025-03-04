@@ -4,13 +4,13 @@
  */
 
 /* Adds padding to background color. */
-[class*="pa--b-"] .content {
+.aplenty--background .content {
   padding-top: var(--spacer);
   padding-bottom: var(--spacer);
   padding-left: var(--spacer);
   padding-right: var(--spacer);
 }
-.paragraphs-item :not([class*="pa--b-"])>.content {
+.paragraphs-item :not(.aplenty--background)>.content {
   padding-right: 0;
   padding-left: 0;
   padding-top: 0;
@@ -18,206 +18,206 @@
 }
 
 /* RGBA Colors from http://mdbootstrap.com/css/colors/#rgba-colors */
-.pa--b-rgba-blue-light {
+.aplenty--background.b-rgba-blue-light {
   background: rgba(3, 169, 244, 0.3);
 }
 
-.pa--b-rgba-red-light {
+.aplenty--background.b-rgba-red-light {
   background: rgba(244, 67, 54, 0.3);
 }
 
-.pa--b-rgba-pink-light {
+.aplenty--background.b-rgba-pink-light {
   background: rgba(233, 30, 99, 0.3);
 }
 
-.pa--b-rgba-purple-light {
+.aplenty--background.b-rgba-purple-light {
   background: rgba(156, 39, 176, 0.3);
 }
 
-.pa--b-rgba-indigo-light {
+.aplenty--background.b-rgba-indigo-light {
   background: rgba(63, 81, 181, 0.3);
 }
 
-.pa--b-rgba-cyan-light {
+.aplenty--background.b-rgba-cyan-light {
   background: rgba(0, 188, 212, 0.3);
 }
 
-.pa--b-rgba-teal-light {
+.aplenty--background.b-rgba-teal-light {
   background: rgba(0, 150, 136, 0.3);
 }
 
-.pa--b-rgba-green-light {
+.aplenty--background.b-rgba-green-light {
   background: rgba(76, 175, 80, 0.3);
 }
 
-.pa--b-rgba-lime-light {
+.aplenty--background.b-rgba-lime-light {
   background: rgba(205, 220, 57, 0.3);
 }
 
-.pa--b-rgba-yellow-light {
+.aplenty--background.b-rgba-yellow-light {
   background: rgba(255, 235, 59, 0.3);
 }
 
-.pa--b-rgba-orange-light {
+.aplenty--background.b-rgba-orange-light {
   background: rgba(255, 152, 0, 0.3);
 }
 
-.pa--b-rgba-brown-light {
+.aplenty--background.b-rgba-brown-light {
   background: rgba(121, 85, 72, 0.3);
 }
 
-.pa--b-rgba-grey-light {
+.aplenty--background.b-rgba-grey-light {
   background: rgba(158, 158, 158, 0.3);
 }
 
-.pa--b-rgba-bluegrey-light {
+.aplenty--background.b-rgba-bluegrey-light {
   background: rgba(96, 125, 139, 0.3);
 }
 
-.pa--b-rgba-black-light {
+.aplenty--background.b-rgba-black-light {
   background: rgba(0, 0, 0, 0.3);
 }
 
-.pa--b-rgba-stylish-light {
+.aplenty--background.b-rgba-stylish-light {
   background: rgba(62, 69, 81, 0.3);
 }
 
-.pa--b-rgba-white-light {
+.aplenty--background.b-rgba-white-light {
   background: rgba(255, 255, 255, 0.3);
 }
 
-.pa--b-rgba-blue-strong {
+.aplenty--background.b-rgba-blue-strong {
   background: rgba(3, 169, 244, 0.7);
 }
 
-.pa--b-rgba-red-strong {
+.aplenty--background.b-rgba-red-strong {
   background: rgba(244, 67, 54, 0.7);
 }
 
-.pa--b-rgba-pink-strong {
+.aplenty--background.b-rgba-pink-strong {
   background: rgba(233, 30, 99, 0.7);
 }
 
-.pa--b-rgba-purple-strong {
+.aplenty--background.b-rgba-purple-strong {
   background: rgba(156, 39, 176, 0.7);
 }
 
-.pa--b-rgba-indigo-strong {
+.aplenty--background.b-rgba-indigo-strong {
   background: rgba(63, 81, 181, 0.7);
 }
 
-.pa--b-rgba-cyan-strong {
+.aplenty--background.b-rgba-cyan-strong {
   background: rgba(0, 188, 212, 0.7);
 }
 
-.pa--b-rgba-teal-strong {
+.aplenty--background.b-rgba-teal-strong {
   background: rgba(0, 150, 136, 0.7);
 }
 
-.pa--b-rgba-green-strong {
+.aplenty--background.b-rgba-green-strong {
   background: rgba(76, 175, 80, 0.7);
 }
 
-.pa--b-rgba-lime-strong {
+.aplenty--background.b-rgba-lime-strong {
   background: rgba(205, 220, 57, 0.7);
 }
 
-.pa--b-rgba-yellow-strong {
+.aplenty--background.b-rgba-yellow-strong {
   background: rgba(255, 235, 59, 0.7);
 }
 
-.pa--b-rgba-orange-strong {
+.aplenty--background.b-rgba-orange-strong {
   background: rgba(255, 152, 0, 0.7);
 }
 
-.pa--b-rgba-brown-strong {
+.aplenty--background.b-rgba-brown-strong {
   background: rgba(121, 85, 72, 0.7);
 }
 
-.pa--b-rgba-grey-strong {
+.aplenty--background.b-rgba-grey-strong {
   background: rgba(158, 158, 158, 0.7);
 }
 
-.pa--b-rgba-bluegrey-strong {
+.aplenty--background.b-rgba-bluegrey-strong {
   background: rgba(96, 125, 139, 0.7);
 }
 
-.pa--b-rgba-black-strong {
+.aplenty--background.b-rgba-black-strong {
   background: rgba(0, 0, 0, 0.7);
 }
 
-.pa--b-rgba-stylish-strong {
+.aplenty--background.b-rgba-stylish-strong {
   background: rgba(62, 69, 81, 0.7);
 }
 
-.pa--b-rgba-white-strong {
+.aplenty--background.b-rgba-white-strong {
   background: rgba(255, 255, 255, 0.7);
 }
 
-.pa--b-rgba-blue-slight {
+.aplenty--background.b-rgba-blue-slight {
   background: rgba(3, 169, 244, 0.1);
 }
 
-.pa--b-rgba-red-slight {
+.aplenty--background.b-rgba-red-slight {
   background: rgba(244, 67, 54, 0.1);
 }
 
-.pa--b-rgba-pink-slight {
+.aplenty--background.b-rgba-pink-slight {
   background: rgba(233, 30, 99, 0.1);
 }
 
-.pa--b-rgba-purple-slight {
+.aplenty--background.b-rgba-purple-slight {
   background: rgba(156, 39, 176, 0.1);
 }
 
-.pa--b-rgba-indigo-slight {
+.aplenty--background.b-rgba-indigo-slight {
   background: rgba(63, 81, 181, 0.1);
 }
 
-.pa--b-rgba-cyan-slight {
+.aplenty--background.b-rgba-cyan-slight {
   background: rgba(0, 188, 212, 0.1);
 }
 
-.pa--b-rgba-teal-slight {
+.aplenty--background.b-rgba-teal-slight {
   background: rgba(0, 150, 136, 0.1);
 }
 
-.pa--b-rgba-green-slight {
+.aplenty--background.b-rgba-green-slight {
   background: rgba(76, 175, 80, 0.1);
 }
 
-.pa--b-rgba-lime-slight {
+.aplenty--background.b-rgba-lime-slight {
   background: rgba(205, 220, 57, 0.1);
 }
 
-.pa--b-rgba-yellow-slight {
+.aplenty--background.b-rgba-yellow-slight {
   background: rgba(255, 235, 59, 0.1);
 }
 
-.pa--b-rgba-orange-slight {
+.aplenty--background.b-rgba-orange-slight {
   background: rgba(255, 152, 0, 0.1);
 }
 
-.pa--b-rgba-brown-slight {
+.aplenty--background.b-rgba-brown-slight {
   background: rgba(121, 85, 72, 0.1);
 }
 
-.pa--b-rgba-grey-slight {
+.aplenty--background.b-rgba-grey-slight {
   background: rgba(158, 158, 158, 0.1);
 }
 
-.pa--b-rgba-bluegrey-slight {
+.aplenty--background.b-rgba-bluegrey-slight {
   background: rgba(96, 125, 139, 0.1);
 }
 
-.pa--b-rgba-black-slight {
+.aplenty--background.b-rgba-black-slight {
   background: rgba(0, 0, 0, 0.1);
 }
 
-.pa--b-rgba-stylish-slight {
+.aplenty--background.b-rgba-stylish-slight {
   background: rgba(62, 69, 81, 0.1);
 }
 
-.pa--b-rgba-white-slight {
+.aplenty--background.b-rgba-white-slight {
   background: rgba(255, 255, 255, 0.1);
 }
