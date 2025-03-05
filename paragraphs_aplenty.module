@@ -126,20 +126,48 @@ function _paragraphs_aplenty_preprocess_aplenty_media_block(&$variables) {
  * Preprocessing code for the Card bundle.
  */
 function _paragraphs_aplenty_preprocess_aplenty_card(&$variables) {
+  $paragraph = $variables['paragraphs_item'];
   $variables['classes_array'][] = 'aplenty-card';
   $width_class = _paragraphs_aplenty_get_width_class($variables['paragraphs_item']->hostEntity(), 'field_aplenty_card_width');
   _paragraphs_aplenty_preprocess_grid_column_prefixes($variables, $width_class);
 
+  $card_alignment = field_get_value($variables['paragraphs_item']->hostEntity(), 'field_aplenty_card_alignment');
+  if ($card_alignment) {
+    $variables['classes_array'][] = $card_alignment;
+  }
+
+  $link_entire_card = field_get_value($variables['paragraphs_item']->hostEntity(), 'field_aplenty_card_link_entire');
+  if ($link_entire_card && !empty($paragraph->field_aplenty_link)) {
+    $variables['classes_array'][] = 'aplenty-card-linked';
+  }
+
+  $link_style = field_get_value($variables['paragraphs_item']->hostEntity(), 'field_aplenty_card_link_style');
+  if (empty($link_style)) {
+    $link_style = 'button btn button-primary btn-primary';
+  }
+
   $variables['content']['field_aplenty_image'][0]['#item']['attributes']['class'][] = 'aplenty-card-img';
-  $paragraph = $variables['paragraphs_item'];
+
   if (!empty($paragraph->field_aplenty_title)) {
     $variables['content']['field_aplenty_title'][0]['#element']['attributes']['class'] = 'aplenty-card-title';
   }
   if (!empty($paragraph->field_aplenty_body)) {
     $variables['content']['field_aplenty_body'][0]['#element']['attributes']['class'] = 'aplenty-card-body';
   }
-  if (!empty($paragraph->field_aplenty_link) && empty($variables['content']['field_aplenty_link'][0]['#element']['attributes']['class'])) {
-    $link_classes = 'aplenty-button button button-primary btn btn-primary';
+
+  if (!empty($paragraph->field_aplenty_link)) {
+    $link_classes = 'aplenty-button';
+    if (!empty($variables['content']['field_aplenty_link'][0]['#element']['attributes']['class'])) {
+      $link_classes .= ' ' . $variables['content']['field_aplenty_link'][0]['#element']['attributes']['class'];
+    }
+    else {
+      $link_classes .= ' ' . $link_style;
+    }
+
+    if ($link_entire_card) {
+      $link_classes .= ' stretched-link';
+    }
+
     $variables['content']['field_aplenty_link'][0]['#element']['attributes']['class'] = $link_classes;
   }
 }
@@ -162,7 +190,6 @@ function _paragraphs_aplenty_preprocess_aplenty_cards(&$variables) {
     return;
   }
   $card_style_class = field_get_value($variables['paragraphs_item'], 'field_aplenty_card_style');
-
   if (empty($card_style_class)) {
     $card_style_class = 'aplenty-card-plain';
   }
@@ -596,7 +623,11 @@ function _paragraphs_aplenty_get_required_fields() {
       'field_aplenty_body',
     ),
     'aplenty_cards' => array(
+      'field_aplenty_card_style',
       'field_aplenty_card_width',
+      'field_aplenty_card_alignment',
+      'field_aplenty_card_link_style',
+      'field_aplenty_card_link_entire',
       'field_aplenty_paragraphs',
     ),
     'aplenty_card' => array(

@@ -228,6 +228,52 @@
 }
 
 /**
+ * Card alignment
+ */
+.aplenty-card-align-left {
+  text-align: left;
+}
+ .aplenty-card-align-center {
+  text-align: center;
+}
+.aplenty-card-align-right {
+  text-align: right;
+}
+
+/**
+ * Card link style
+ */
+.aplenty-card .link-hidden.stretched-link {
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+/**
+ * Stretched Link
+ *   Added to a link to make the containing block clickable.
+ */
+.aplenty-card-linked .content {
+  position: relative;
+}
+.aplenty-card-linked .content:hover {
+  opacity: 0.9;
+  transition: opacity 0.6s ease 0s;
+}
+
+.stretched-link::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: auto;
+  content: "";
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/**
  * Images
  */
 .aplenty-image .field-name-field-aplenty-caption,

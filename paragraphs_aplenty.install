@@ -293,7 +293,7 @@ function _paragraphs_aplenty_card() {
   ));
   paragraphs_aplenty_add_link_field('field_aplenty_link', $bundle, array(
     'label' => 'Card button',
-    'description' => 'If provided, this link will appear at the bottom of the card, as a button.',
+    'description' => 'A link provided here will be styled with the Link style field on Cards. Provide a class to override with a custom style.',
     'settings' => array(
       'attributes' => array(
         'configurable_class' => 1,
@@ -329,6 +329,9 @@ function _paragraphs_aplenty_card() {
   paragraphs_aplenty_add_text_list_field('field_aplenty_card_style', $bundle,
     array(
       'label' => 'Card style',
+      'widget' => array(
+        'weight' => 0,
+      ),
       'description' => 'Choose the card style to apply to each card.',
       'required' => TRUE,
       'default_value' => array(
@@ -348,6 +351,9 @@ function _paragraphs_aplenty_card() {
   paragraphs_aplenty_add_number_list_field('field_aplenty_card_width', $bundle,
     array(
       'label' => 'Cards width',
+      'widget' => array(
+        'weight' => 1,
+      ),
       'description' => 'This sets the width of the cards per row (the number of cards per row).',
       'required' => TRUE,
       'default_value' => array(
@@ -365,8 +371,62 @@ function _paragraphs_aplenty_card() {
       ),
     )
   );
+  paragraphs_aplenty_add_text_list_field('field_aplenty_card_alignment', $bundle,
+    array(
+      'label' => 'Card alignment',
+      'widget' => array(
+        'weight' => 2,
+      ),
+      'description' => 'Choose the card alignment to apply to each card.',
+      'required' => TRUE,
+      'default_value' => array(
+        array('value' => 'aplenty-card-align-left'),
+      ),
+    ),
+    array(
+      'settings' => array(
+        'allowed_values' => array(
+          'aplenty-card-align-left' => 'Left',
+          'aplenty-card-align-center' => 'Center',
+          'aplenty-card-align-right' => 'Right',
+        ),
+      ),
+    )
+  );
+  paragraphs_aplenty_add_text_list_field('field_aplenty_card_link_style', $bundle,
+    array(
+      'label' => 'Link style',
+      'widget' => array(
+        'weight' => 3,
+      ),
+      'description' => 'Choose the link style to apply to each card button.',
+      'required' => TRUE,
+      'default_value' => array(
+        array('value' => 'link-plain'),
+      ),
+    ),
+    array(
+      'settings' => array(
+        'allowed_values' => array(
+          'link-plain' => 'Plain link',
+          'button btn button-primary btn-primary' => 'Button (primary)',
+          'button btn button-secondary btn-secondary' => 'Button (secondary)',
+          'link-hidden' => 'Hidden link (when linking entire card)',
+        ),
+      ),
+    )
+  );
+  paragraphs_aplenty_add_boolean_field('field_aplenty_card_link_entire', $bundle, array(
+    'label' => 'Link entire card',
+    'widget' => array(
+      'weight' => 4,
+    ),
+  ));
   paragraphs_aplenty_add_paragraphs_field('field_aplenty_paragraphs', $bundle, array(
     'label' => 'Cards',
+    'widget' => array(
+      'weight' => 99,
+    ),
     'settings' => array(
       'allowed_bundles' => array(
         'aplenty_card' => 'aplenty_card',
@@ -781,6 +841,133 @@ function paragraphs_aplenty_update_1007() {
   }
   if ($config->get('label') == 'Row of columns') {
     $config->set('label', 'Columns');
+  }
+  $config->save();
+
+}
+
+/**
+ * Add new cards fields.
+ */
+function paragraphs_aplenty_update_1008() {
+  // Add new fields. There's already a check if the field already exists.
+  module_load_include('inc', 'paragraphs_aplenty', 'includes/paragraphs_aplenty.crud');
+  $bundle = 'aplenty_cards';
+  paragraphs_aplenty_add_text_list_field('field_aplenty_card_style', $bundle,
+    array(
+      'label' => 'Card style',
+      'widget' => array(
+        'weight' => 0,
+      ),
+      'description' => 'Choose the card style to apply to each card.',
+      'required' => TRUE,
+      'default_value' => array(
+        array('value' => 'aplenty-card-plain'),
+      ),
+    ),
+    array(
+      'settings' => array(
+        'allowed_values' => array(
+          'aplenty-card-plain' => 'Plain',
+          'aplenty-card-border' => 'Borders',
+          'aplenty-card-background' => 'Background',
+        ),
+      ),
+    )
+  );
+  paragraphs_aplenty_add_number_list_field('field_aplenty_card_width', $bundle,
+    array(
+      'label' => 'Cards width',
+      'widget' => array(
+        'weight' => 1,
+      ),
+      'description' => 'This sets the width of the cards per row (the number of cards per row).',
+      'required' => TRUE,
+      'default_value' => array(
+        array('value' => 3),
+      ),
+    ),
+    array(
+      'settings' => array(
+        'allowed_values' => array(
+          2 => '½ width (2 cards)',
+          3 => '⅓ width (3 cards)',
+          4 => '¼ width (4 cards)',
+          6 => '⅙ width (6 cards)',
+        ),
+      ),
+    )
+  );
+  paragraphs_aplenty_add_text_list_field('field_aplenty_card_alignment', $bundle,
+    array(
+      'label' => 'Card alignment',
+      'widget' => array(
+        'weight' => 2,
+      ),
+      'description' => 'Choose the card alignment to apply to each card.',
+      'required' => TRUE,
+      'default_value' => array(
+        array('value' => 'aplenty-card-align-left'),
+      ),
+    ),
+    array(
+      'settings' => array(
+        'allowed_values' => array(
+          'aplenty-card-align-left' => 'Left',
+          'aplenty-card-align-center' => 'Center',
+          'aplenty-card-align-right' => 'Right',
+        ),
+      ),
+    )
+  );
+  paragraphs_aplenty_add_text_list_field('field_aplenty_card_link_style', $bundle,
+    array(
+      'label' => 'Link style',
+      'widget' => array(
+        'weight' => 3,
+      ),
+      'description' => 'Choose the link style to apply to each card button.',
+      'required' => TRUE,
+      'default_value' => array(
+        array('value' => 'link-plain'),
+      ),
+    ),
+    array(
+      'settings' => array(
+        'allowed_values' => array(
+          'link-plain' => 'Plain link',
+          'button btn button-primary btn-primary' => 'Button (primary)',
+          'button btn button-secondary btn-secondary' => 'Button (secondary)',
+          'link-hidden' => 'Hidden link (when linking entire card)',
+        ),
+      ),
+    )
+  );
+  paragraphs_aplenty_add_boolean_field('field_aplenty_card_link_entire', $bundle, array(
+    'label' => 'Link entire card',
+    'widget' => array(
+      'weight' => 4,
+    ),
+  ));
+
+  $config = config('field.instance.paragraphs_item.aplenty_cards.field_aplenty_paragraphs');
+  if ($config->isNew()) {
+    return;
+  }
+  $config->set('widget.weight', 99);
+  $config->save();
+}
+
+/**
+ * Update help text for the Card link field.
+ */
+function paragraphs_aplenty_update_1009() {
+  $config = config('field.instance.paragraphs_item.aplenty_card.field_aplenty_link');
+  if ($config->isNew()) {
+    return;
+  }
+  if ($config->get('description') == 'If provided, this link will appear at the bottom of the card, as a button.') {
+    $config->set('description', 'A link provided here will be styled with the Link style field on Cards. Provide a class to override with a custom style.');
   }
   $config->save();
 
