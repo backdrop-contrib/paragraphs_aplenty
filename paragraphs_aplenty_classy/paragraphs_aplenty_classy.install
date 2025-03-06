@@ -17,6 +17,9 @@ function paragraphs_aplenty_classy_install() {
       'margin',
       'padding',
     ),
+    'aplenty_accordion_item' => array(
+      'background',
+    ),
     'aplenty_grid' => array(
       'background',
       'width',
@@ -41,6 +44,9 @@ function paragraphs_aplenty_classy_install() {
       'width',
       'margin',
       'padding',
+    ),
+    'aplenty_card' => array(
+      'background',
     ),
     'aplenty_heading' => array(
       'background',

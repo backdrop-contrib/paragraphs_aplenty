@@ -4,7 +4,7 @@
  */
 
 /* Adds padding to background color. */
-.aplenty--background .content {
+.aplenty--background > .content {
   padding-top: var(--spacer);
   padding-bottom: var(--spacer);
   padding-left: var(--spacer);
@@ -17,6 +17,17 @@
   padding-bottom: 0;
 }
 
+/**
+ * Make immediate content transparent if background is set.
+ *   Override default for individual card backgrounds.
+ */
+.aplenty-card.aplenty--background>.content {
+  background-color: transparent;
+}
+
+/**
+ * Opacity variables
+ */
 .aplenty--background {
   --bg-opacity-light: 0.3;
   --bg-opacity-strong: 0.7;
@@ -24,6 +35,9 @@
   --bg-opacity-slight: 0.1;
 }
 
+/**
+ * Colour variables
+ */
 .aplenty--background {
   --rgba-blue: 3, 169, 244;
   --rgba-red: 244, 67, 54;
@@ -46,271 +60,271 @@
 
 /* RGBA Colors from http://mdbootstrap.com/css/colors/#rgba-colors */
 .aplenty--background.b-rgba-blue-light {
-  background: rgba(var(--rgba-blue), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-blue), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-red-light {
-  background: var(--rgba-red-light);
+  background-color: rgba(var(--rgba-red), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-pink-light {
-  background: var(--rgba-pink-light);
+  background-color: rgba(var(--rgba-pink), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-purple-light {
-  background: rgba(var(--rgba-purple), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-purple), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-indigo-light {
-  background: rgba(var(--rgba-indigo), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-indigo), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-cyan-light {
-  background: rgba(var(--rgba-cyan), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-cyan), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-teal-light {
-  background: rgba(var(--rgba-teal), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-teal), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-green-light {
-  background: rgba(var(--rgba-green), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-green), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-lime-light {
-  background: rgba(var(--rgba-lime), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-lime), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-yellow-light {
-  background: rgba(var(--rgba-yellow), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-yellow), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-orange-light {
-  background: rgba(var(--rgba-orange), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-orange), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-brown-light {
-  background: rgba(var(--rgba-brown), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-brown), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-grey-light {
-  background: rgba(var(--rgba-grey), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-grey), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-bluegrey-light {
-  background: rgba(var(--rgba-bluegrey), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-bluegrey), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-black-light {
-  background: rgba(var(--rgba-black), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-black), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-stylish-light {
-  background: rgba(var(--rgba-stylish), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-stylish), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-white-light {
-  background: rgba(var(--rgba-white), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-white), var(--bg-opacity-light)) !important;
 }
 
 .aplenty--background.b-rgba-blue-strong {
-  background: rgba(var(--rgba-blue), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-blue), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-red-strong {
-  background: rgba(var(--rgba-red), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-red), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-pink-strong {
-  background: rgba(var(--rgba-pink), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-pink), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-purple-strong {
-  background: rgba(var(--rgba-purple), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-purple), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-indigo-strong {
-  background: rgba(var(--rgba-indigo), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-indigo), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-cyan-strong {
-  background: rgba(var(--rgba-cyan), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-cyan), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-teal-strong {
-  background: rgba(var(--rgba-teal), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-teal), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-green-strong {
-  background: rgba(var(--rgba-green), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-green), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-lime-strong {
-  background: rgba(var(--rgba-lime), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-lime), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-yellow-strong {
-  background: rgba(var(--rgba-yellow), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-yellow), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-orange-strong {
-  background: rgba(var(--rgba-orange), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-orange), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-brown-strong {
-  background: rgba(var(--rgba-brown), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-brown), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-grey-strong {
-  background: rgba(var(--rgba-grey), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-grey), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-bluegrey-strong {
-  background: rgba(var(--rgba-bluegrey), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-bluegrey), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-black-strong {
-  background: rgba(var(--rgba-black), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-black), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-stylish-strong {
-  background: rgba(var(--rgba-stylish), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-stylish), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-white-strong {
-  background: rgba(var(--rgba-white), var(--bg-opacity-strong));
+  background-color: rgba(var(--rgba-white), var(--bg-opacity-strong)) !important;
 }
 
 .aplenty--background.b-rgba-red-full {
-  background: rgba(var(--rgba-red), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-red), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-pink-full {
-  background: rgba(var(--rgba-pink), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-pink), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-purple-full {
-  background: rgba(var(--rgba-purple), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-purple), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-indigo-full {
-  background: rgba(var(--rgba-indigo), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-indigo), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-cyan-full {
-  background: rgba(var(--rgba-cyan), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-cyan), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-teal-full {
-  background: rgba(var(--rgba-teal), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-teal), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-green-full {
-  background: rgba(var(--rgba-green), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-green), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-lime-full {
-  background: rgba(var(--rgba-lime), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-lime), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-yellow-full {
-  background: rgba(var(--rgba-yellow), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-yellow), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-orange-full {
-  background: rgba(var(--rgba-orange), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-orange), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-brown-full {
-  background: rgba(var(--rgba-brown), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-brown), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-grey-full {
-  background: rgba(var(--rgba-grey), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-grey), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-bluegrey-full {
-  background: rgba(var(--rgba-bluegrey), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-bluegrey), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-black-full {
-  background: rgba(var(--rgba-black), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-black), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-stylish-full {
-  background: rgba(var(--rgba-stylish), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-stylish), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-white-full {
-  background: rgba(var(--rgba-white), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-white), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-blue-slight {
-  background: rgba(var(--rgba-blue), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-blue), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-red-slight {
-  background: rgba(var(--rgba-red), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-red), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-pink-slight {
-  background: rgba(var(--rgba-pink), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-pink), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-purple-slight {
-  background: rgba(var(--rgba-purple), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-purple), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-indigo-slight {
-  background: rgba(var(--rgba-indigo), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-indigo), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-cyan-slight {
-  background: rgba(var(--rgba-cyan), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-cyan), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-teal-slight {
-  background: rgba(var(--rgba-teal), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-teal), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-green-slight {
-  background: rgba(var(--rgba-green), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-green), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-lime-slight {
-  background: rgba(var(--rgba-lime), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-lime), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-yellow-slight {
-  background: rgba(var(--rgba-yellow), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-yellow), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-orange-slight {
-  background: rgba(var(--rgba-orange), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-orange), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-brown-slight {
-  background: rgba(var(--rgba-brown), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-brown), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-grey-slight {
-  background: rgba(var(--rgba-grey), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-grey), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-bluegrey-slight {
-  background: rgba(var(--rgba-bluegrey), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-bluegrey), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-black-slight {
-  background: rgba(var(--rgba-black), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-black), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-stylish-slight {
-  background: rgba(var(--rgba-stylish), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-stylish), var(--bg-opacity-slight)) !important;
 }
 
 .aplenty--background.b-rgba-white-slight {
-  background: rgba(var(--rgba-white), var(--bg-opacity-slight));
+  background-color: rgba(var(--rgba-white), var(--bg-opacity-slight)) !important;
 }
 
 /**
@@ -318,20 +332,35 @@
  *   Copy into the active theme and customize as needed.
  */
 .aplenty--background.b-primary {
-  background: rgba(var(--rgba-blue), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-blue), var(--bg-opacity-light)) !important;
 }
 .aplenty--background.b-secondary {
-  background: rgba(var(--rgba-grey), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-grey), var(--bg-opacity-light)) !important;
 }
 .aplenty--background.b-info {
-  background: rgba(var(--rgba-cyan), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-cyan), var(--bg-opacity-light)) !important;
 }
 .aplenty--background.b-success {
-  background: rgba(var(--rgba-green), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-green), var(--bg-opacity-light)) !important;
 }
 .aplenty--background.b-warning {
-  background: rgba(var(--rgba-yellow), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-yellow), var(--bg-opacity-light)) !important;
 }
 .aplenty--background.b-danger {
-  background: rgba(var(--rgba-red), var(--bg-opacity-light));
+  background-color: rgba(var(--rgba-red), var(--bg-opacity-light)) !important;
+}
+
+/**
+ * Set text colours
+ *   If the backgrounds are too dark.
+ */
+details.aplenty--background.b-rgba-black-strong,
+.aplenty--background.b-rgba-black-strong>.content,
+details.aplenty--background.b-rgba-black-full,
+.aplenty--background.b-rgba-black-full>.content,
+details.aplenty--background.b-rgba-stylish-strong,
+.aplenty--background.b-rgba-stylish-strong>.content,
+details.aplenty--background.b-rgba-stylish-full,
+.aplenty--background.b-rgba-stylish-full>.content {
+  color: rgba(var(--rgba-white), var(--bg-opacity-full)) !important;
 }
