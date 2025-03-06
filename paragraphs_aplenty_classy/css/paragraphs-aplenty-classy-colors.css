@@ -17,207 +17,321 @@
   padding-bottom: 0;
 }
 
+.aplenty--background {
+  --bg-opacity-light: 0.3;
+  --bg-opacity-strong: 0.7;
+  --bg-opacity-full: 1;
+  --bg-opacity-slight: 0.1;
+}
+
+.aplenty--background {
+  --rgba-blue: 3, 169, 244;
+  --rgba-red: 244, 67, 54;
+  --rgba-pink: 233, 30, 99;
+  --rgba-purple: 156, 39, 176;
+  --rgba-indigo: 63, 81, 181;
+  --rgba-cyan: 0, 188, 212;
+  --rgba-teal: 0, 150, 136;
+  --rgba-green: 76, 175, 80;
+  --rgba-lime: 205, 220, 57;
+  --rgba-yellow: 255, 235, 59;
+  --rgba-orange: 255, 152, 0;
+  --rgba-brown: 121, 85, 72;
+  --rgba-grey: 158, 158, 158;
+  --rgba-bluegrey: 96, 125, 139;
+  --rgba-black: 0, 0, 0;
+  --rgba-stylish: 62, 69, 81;
+  --rgba-white: 255, 255, 255;
+}
+
 /* RGBA Colors from http://mdbootstrap.com/css/colors/#rgba-colors */
 .aplenty--background.b-rgba-blue-light {
-  background: rgba(3, 169, 244, 0.3);
+  background: rgba(var(--rgba-blue), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-red-light {
-  background: rgba(244, 67, 54, 0.3);
+  background: var(--rgba-red-light);
 }
 
 .aplenty--background.b-rgba-pink-light {
-  background: rgba(233, 30, 99, 0.3);
+  background: var(--rgba-pink-light);
 }
 
 .aplenty--background.b-rgba-purple-light {
-  background: rgba(156, 39, 176, 0.3);
+  background: rgba(var(--rgba-purple), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-indigo-light {
-  background: rgba(63, 81, 181, 0.3);
+  background: rgba(var(--rgba-indigo), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-cyan-light {
-  background: rgba(0, 188, 212, 0.3);
+  background: rgba(var(--rgba-cyan), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-teal-light {
-  background: rgba(0, 150, 136, 0.3);
+  background: rgba(var(--rgba-teal), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-green-light {
-  background: rgba(76, 175, 80, 0.3);
+  background: rgba(var(--rgba-green), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-lime-light {
-  background: rgba(205, 220, 57, 0.3);
+  background: rgba(var(--rgba-lime), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-yellow-light {
-  background: rgba(255, 235, 59, 0.3);
+  background: rgba(var(--rgba-yellow), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-orange-light {
-  background: rgba(255, 152, 0, 0.3);
+  background: rgba(var(--rgba-orange), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-brown-light {
-  background: rgba(121, 85, 72, 0.3);
+  background: rgba(var(--rgba-brown), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-grey-light {
-  background: rgba(158, 158, 158, 0.3);
+  background: rgba(var(--rgba-grey), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-bluegrey-light {
-  background: rgba(96, 125, 139, 0.3);
+  background: rgba(var(--rgba-bluegrey), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-black-light {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(var(--rgba-black), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-stylish-light {
-  background: rgba(62, 69, 81, 0.3);
+  background: rgba(var(--rgba-stylish), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-white-light {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(var(--rgba-white), var(--bg-opacity-light));
 }
 
 .aplenty--background.b-rgba-blue-strong {
-  background: rgba(3, 169, 244, 0.7);
+  background: rgba(var(--rgba-blue), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-red-strong {
-  background: rgba(244, 67, 54, 0.7);
+  background: rgba(var(--rgba-red), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-pink-strong {
-  background: rgba(233, 30, 99, 0.7);
+  background: rgba(var(--rgba-pink), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-purple-strong {
-  background: rgba(156, 39, 176, 0.7);
+  background: rgba(var(--rgba-purple), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-indigo-strong {
-  background: rgba(63, 81, 181, 0.7);
+  background: rgba(var(--rgba-indigo), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-cyan-strong {
-  background: rgba(0, 188, 212, 0.7);
+  background: rgba(var(--rgba-cyan), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-teal-strong {
-  background: rgba(0, 150, 136, 0.7);
+  background: rgba(var(--rgba-teal), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-green-strong {
-  background: rgba(76, 175, 80, 0.7);
+  background: rgba(var(--rgba-green), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-lime-strong {
-  background: rgba(205, 220, 57, 0.7);
+  background: rgba(var(--rgba-lime), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-yellow-strong {
-  background: rgba(255, 235, 59, 0.7);
+  background: rgba(var(--rgba-yellow), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-orange-strong {
-  background: rgba(255, 152, 0, 0.7);
+  background: rgba(var(--rgba-orange), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-brown-strong {
-  background: rgba(121, 85, 72, 0.7);
+  background: rgba(var(--rgba-brown), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-grey-strong {
-  background: rgba(158, 158, 158, 0.7);
+  background: rgba(var(--rgba-grey), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-bluegrey-strong {
-  background: rgba(96, 125, 139, 0.7);
+  background: rgba(var(--rgba-bluegrey), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-black-strong {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(var(--rgba-black), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-stylish-strong {
-  background: rgba(62, 69, 81, 0.7);
+  background: rgba(var(--rgba-stylish), var(--bg-opacity-strong));
 }
 
 .aplenty--background.b-rgba-white-strong {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(var(--rgba-white), var(--bg-opacity-strong));
+}
+
+.aplenty--background.b-rgba-red-full {
+  background: rgba(var(--rgba-red), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-pink-full {
+  background: rgba(var(--rgba-pink), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-purple-full {
+  background: rgba(var(--rgba-purple), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-indigo-full {
+  background: rgba(var(--rgba-indigo), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-cyan-full {
+  background: rgba(var(--rgba-cyan), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-teal-full {
+  background: rgba(var(--rgba-teal), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-green-full {
+  background: rgba(var(--rgba-green), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-lime-full {
+  background: rgba(var(--rgba-lime), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-yellow-full {
+  background: rgba(var(--rgba-yellow), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-orange-full {
+  background: rgba(var(--rgba-orange), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-brown-full {
+  background: rgba(var(--rgba-brown), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-grey-full {
+  background: rgba(var(--rgba-grey), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-bluegrey-full {
+  background: rgba(var(--rgba-bluegrey), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-black-full {
+  background: rgba(var(--rgba-black), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-stylish-full {
+  background: rgba(var(--rgba-stylish), var(--bg-opacity-slight));
+}
+
+.aplenty--background.b-rgba-white-full {
+  background: rgba(var(--rgba-white), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-blue-slight {
-  background: rgba(3, 169, 244, 0.1);
+  background: rgba(var(--rgba-blue), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-red-slight {
-  background: rgba(244, 67, 54, 0.1);
+  background: rgba(var(--rgba-red), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-pink-slight {
-  background: rgba(233, 30, 99, 0.1);
+  background: rgba(var(--rgba-pink), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-purple-slight {
-  background: rgba(156, 39, 176, 0.1);
+  background: rgba(var(--rgba-purple), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-indigo-slight {
-  background: rgba(63, 81, 181, 0.1);
+  background: rgba(var(--rgba-indigo), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-cyan-slight {
-  background: rgba(0, 188, 212, 0.1);
+  background: rgba(var(--rgba-cyan), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-teal-slight {
-  background: rgba(0, 150, 136, 0.1);
+  background: rgba(var(--rgba-teal), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-green-slight {
-  background: rgba(76, 175, 80, 0.1);
+  background: rgba(var(--rgba-green), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-lime-slight {
-  background: rgba(205, 220, 57, 0.1);
+  background: rgba(var(--rgba-lime), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-yellow-slight {
-  background: rgba(255, 235, 59, 0.1);
+  background: rgba(var(--rgba-yellow), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-orange-slight {
-  background: rgba(255, 152, 0, 0.1);
+  background: rgba(var(--rgba-orange), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-brown-slight {
-  background: rgba(121, 85, 72, 0.1);
+  background: rgba(var(--rgba-brown), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-grey-slight {
-  background: rgba(158, 158, 158, 0.1);
+  background: rgba(var(--rgba-grey), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-bluegrey-slight {
-  background: rgba(96, 125, 139, 0.1);
+  background: rgba(var(--rgba-bluegrey), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-black-slight {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(var(--rgba-black), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-stylish-slight {
-  background: rgba(62, 69, 81, 0.1);
+  background: rgba(var(--rgba-stylish), var(--bg-opacity-slight));
 }
 
 .aplenty--background.b-rgba-white-slight {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(var(--rgba-white), var(--bg-opacity-slight));
+}
+
+/**
+ * Brand colours
+ *   Copy into the active theme and customize as needed.
+ */
+.aplenty--background.b-primary {
+  background: rgba(var(--rgba-blue), var(--bg-opacity-light));
+}
+.aplenty--background.b-secondary {
+  background: rgba(var(--rgba-grey), var(--bg-opacity-light));
+}
+.aplenty--background.b-info {
+  background: rgba(var(--rgba-cyan), var(--bg-opacity-light));
+}
+.aplenty--background.b-success {
+  background: rgba(var(--rgba-green), var(--bg-opacity-light));
+}
+.aplenty--background.b-warning {
+  background: rgba(var(--rgba-yellow), var(--bg-opacity-light));
+}
+.aplenty--background.b-danger {
+  background: rgba(var(--rgba-red), var(--bg-opacity-light));
 }
