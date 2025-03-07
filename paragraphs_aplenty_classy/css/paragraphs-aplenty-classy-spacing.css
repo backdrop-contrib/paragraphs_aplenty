@@ -1,27 +1,14 @@
 /**
  * @file
- * Paragraphs Aplenty Spacing
+ * Paragraphs Aplenty Spacing and Widths
  */
 
 /**
  * Set up so widths and spacing work better
  */
-.paragraphs-item {
-  display: table;
-  width: 100%;
-  margin-right: 0;
-  margin-left: 0;
-  table-layout: fixed;
-}
-
-.paragraphs-item::before,
 .paragraphs-item::after {
   display: table;
-  table-layout: fixed;
   content: " ";
-}
-
-.paragraphs-item::after {
   clear: both;
 }
 
@@ -32,7 +19,6 @@
 
 @media (min-width: 48em) {
   .paragraphs-item>.content {
-    float: left;
     width: 100%;
   }
 }
@@ -40,56 +26,55 @@
 /**
  * Width
  */
-.aplenty--width.w-tiny>.content {
-  position: relative;
-  min-height: 1px;
+.aplenty--width {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.aplenty--width.w-narrow>.content {
-  position: relative;
-  min-height: 1px;
-}
-.aplenty--width.w-medium>.content {
-  position: relative;
-  min-height: 1px;
-}
-.aplenty--width.w-large>.content {
-  position: relative;
-  min-height: 1px;
-}
+
+.aplenty--width.w-tiny>.content,
+.aplenty--width.w-narrow>.content,
+.aplenty--width.w-medium>.content,
+.aplenty--width.w-large>.content,
 .aplenty--width.w-full>.content {
   position: relative;
   min-height: 1px;
+  box-sizing: border-box;
+  width: 100%;
+  /**
+   * Fix for Chrome bug.
+   * @see https://bugs.chromium.org/p/chromium/issues/detail?id=546034#c6
+   */
+  min-width: 0;
+}
+.aplenty--width.w-full>.content {
   padding-left: 0;
   padding-right: 0;
 }
 @media (min-width: 48em) {
   .aplenty--width.w-tiny>.content {
-    float: left;
-    width: 33.33333%;
-    margin-left: 33.33333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
   }
 
   .aplenty--width.w-narrow>.content {
-    float: left;
-    width: 50%;
-    margin-left: 25%;
+    flex: 0 0 50%;
+    max-width: 50%;
   }
 
   .aplenty--width.w-medium>.content {
-    float: left;
-    width: 66.66667%;
-    margin-left: 16.66667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
   }
 
   .aplenty--width.w-large>.content {
-    float: left;
-    width: 83.33333%;
-    margin-left: 8.33333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
   }
 
   .aplenty--width.w-full>.content {
-    float: left;
-    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 
