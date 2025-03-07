@@ -354,7 +354,11 @@ details.aplenty--background.b-rgba-stylish-strong,
 .aplenty--background.b-rgba-stylish-strong>.content,
 details.aplenty--background.b-rgba-stylish-full,
 .aplenty--background.b-rgba-stylish-full>.content {
-  color: white !important;
+  color: white;
+}
+/* If a child paragraph doesn't have a background, reset text. */
+.aplenty--background .paragraphs-item:not(.aplenty--background) {
+  color: black;
 }
 
 /**
