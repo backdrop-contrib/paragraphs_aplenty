@@ -32,7 +32,11 @@ function paragraphs_aplenty_classy_install() {
     'aplenty_column_wrapper' => array(
       'background',
     ),
-    // 'aplenty_hero', // Exclude?
+    'aplenty_hero' => array(
+      'background',
+      'width',
+      'padding',
+    ),
     'aplenty_media_list' => array(
       'background',
       'width',
