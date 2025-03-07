@@ -362,25 +362,32 @@ details.aplenty--background.b-rgba-stylish-full,
 }
 
 /**
+ * Card customizations
+ */
+
+/**
  * Card button
  *   Darker than the background but semi-transparent so it picks up the colour.
+ *
+  * Don't restyle if the card background is default.
  */
-.aplenty--background .aplenty-button:not(.link-plain) {
+.paragraphs-item-aplenty-card.aplenty--background .aplenty-button:not(.link-plain) {
   background-color: rgba(var(--rgba-black), var(--bg-opacity-light)) !important;
 }
-.aplenty--background .aplenty-button:not(.link-plain):hover,
-.aplenty--background .aplenty-button:not(.link-plain):focus {
+.paragraphs-item-aplenty-card.aplenty--background .aplenty-button:not(.link-plain):hover,
+.paragraphs-item-aplenty-card.aplenty--background .aplenty-button:not(.link-plain):focus {
   color: white !important;
   background-color: rgba(var(--rgba-black), var(--bg-opacity-strong)) !important;
 }
-.aplenty--background a:not(.link-plain) {
+.paragraphs-item-aplenty-card.aplenty--background a:not(.link-plain) {
   color: white !important;
 }
 
 /**
- * Customizations
+ * Make card content transparent if background is set.
+ * And removing padding since the card image should be to the edge.
  */
-/* Make card content transparent if background is set. */
 .aplenty-card.aplenty--background>.content {
   background-color: transparent;
+  padding: 0;
 }

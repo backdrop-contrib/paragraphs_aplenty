@@ -1,0 +1,10 @@
+/**
+ * Aplenty Classy styles
+ */
+
+/* Padding, margins and widths */
+@import url('paragraphs-aplenty-classy-spacing.css');
+/* Background colors */
+@import url('paragraphs-aplenty-classy-colors.css');
+/* Background colors for Hero blocks */
+@import url('paragraphs-aplenty-classy-colors-hero.css');
