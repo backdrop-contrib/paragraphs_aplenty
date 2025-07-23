@@ -623,6 +623,13 @@ function _paragraphs_aplenty_heading() {
       'weight' => 0,
      ),
   ));
+  paragraphs_aplenty_add_text_field('field_aplenty_subheading', $bundle, array(
+    'label' => 'Sub-heading',
+    'required' => FALSE,
+    'widget' => array(
+      'weight' => 0,
+     ),
+  ));
   paragraphs_aplenty_add_text_field('field_aplenty_anchor', $bundle, array(
     'label' => 'Anchor',
     'required' => FALSE,
