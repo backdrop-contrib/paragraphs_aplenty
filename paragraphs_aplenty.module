@@ -211,6 +211,7 @@ function _paragraphs_aplenty_preprocess_aplenty_cards(&$variables) {
 function _paragraphs_aplenty_preprocess_aplenty_heading(&$variables) {
   $variables['classes_array'][] = 'aplenty-heading';
   $heading = (string) field_get_value($variables['paragraphs_item'], 'field_aplenty_heading');
+  $subheading = (string) field_get_value($variables['paragraphs_item'], 'field_aplenty_subheading');
   $variables['heading_text'] = $heading ? $heading : '';
   $anchor = (string) field_get_value($variables['paragraphs_item'], 'field_aplenty_anchor');
   $anchor_text = $anchor ? backdrop_html_id(trim($anchor)) : '';
@@ -226,6 +227,12 @@ function _paragraphs_aplenty_preprocess_aplenty_heading(&$variables) {
     '#prefix' => $prefix,
     '#markup' => $heading,
     '#suffix' => $suffix,
+  );
+  $variables['subheading'] = array(
+    '#type' => 'markup',
+    '#prefix' => '<h3>',
+    '#markup' => $subheading,
+    '#suffix' => '</h3>',
   );
   if (module_exists('permalink_filter')) {
     $settings = config_get('permalink_filter.settings');
