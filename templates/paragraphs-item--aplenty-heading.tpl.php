@@ -6,6 +6,9 @@
     <div class="aplenty-heading">
       <?php print render($heading); ?>
     </div>
+    <div class="aplenty-subheading">
+      <?php print render($subheading); ?>
+    </div>
   </div>
 </div>
 
