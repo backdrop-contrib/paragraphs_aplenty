@@ -972,3 +972,21 @@ function paragraphs_aplenty_update_1009() {
   $config->save();
 
 }
+
+/**
+ * Add a sub-heading to the heading
+ */
+function paragraphs_aplenty_update_1011() {
+  $config = config('field.instance.paragraphs_item.aplenty_heading.field_aplenty_subheading');
+  if ($config->isNew()) {
+    return;
+  }
+  $bundle = 'aplenty_heading';
+  paragraphs_aplenty_add_text_field('field_aplenty_subheading', $bundle, array(
+    'label' => 'Sub-heading',
+    'required' => FALSE,
+    'widget' => array(
+      'weight' => 0,
+     ),
+  ));
+}
