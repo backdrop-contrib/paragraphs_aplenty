@@ -35,7 +35,8 @@
 .aplenty--width.w-tiny>.content,
 .aplenty--width.w-narrow>.content,
 .aplenty--width.w-medium>.content,
-.aplenty--width.w-large>.content,
+.aplenty--width.w-large>.content, /* Kept for BW */
+.aplenty--width.w-wide>.content,
 .aplenty--width.w-full>.content {
   position: relative;
   min-height: 1px;
@@ -67,7 +68,8 @@
     max-width: 66.666667%;
   }
 
-  .aplenty--width.w-large>.content {
+  .aplenty--width.w-large>.content, /* Kept for BW */
+  .aplenty--width.w-wide>.content {
     flex: 0 0 83.333333%;
     max-width: 83.333333%;
   }
