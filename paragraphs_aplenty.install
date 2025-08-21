@@ -981,13 +981,52 @@ function paragraphs_aplenty_update_1009() {
 }
 
 /**
+ * Add an alignment field to the Heading.
+ */
+function paragraphs_aplenty_update_1010() {
+  $config = config('field.instance.paragraphs_item.aplenty_heading.field_aplenty_alignment');
+  if (!$config->isNew()) {
+    return;
+  }
+
+  module_load_include('inc', 'paragraphs_aplenty', 'includes/paragraphs_aplenty.crud');
+
+  $bundle = 'aplenty_heading';
+  paragraphs_aplenty_add_text_list_field('field_aplenty_alignment', $bundle,
+    array(
+      'label' => 'Alignment',
+      'widget' => array(
+        'weight' => 2,
+      ),
+      'description' => 'Choose the alignment to apply.',
+      'required' => FALSE,
+      'default_value' => array(
+        array('value' => 'aplenty-align-left'),
+      ),
+    ),
+    array(
+      'settings' => array(
+        'allowed_values' => array(
+          'aplenty-align-left' => 'Left',
+          'aplenty-align-center' => 'Center',
+          'aplenty-align-right' => 'Right',
+        ),
+      ),
+    )
+  );
+}
+
+/**
  * Add a sub-heading to the heading
  */
 function paragraphs_aplenty_update_1011() {
   $config = config('field.instance.paragraphs_item.aplenty_heading.field_aplenty_subheading');
-  if ($config->isNew()) {
+  if (!$config->isNew()) {
     return;
   }
+
+  module_load_include('inc', 'paragraphs_aplenty', 'includes/paragraphs_aplenty.crud');
+
   $bundle = 'aplenty_heading';
   paragraphs_aplenty_add_text_field('field_aplenty_subheading', $bundle, array(
     'label' => 'Sub-heading',
