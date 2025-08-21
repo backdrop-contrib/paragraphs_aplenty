@@ -234,6 +234,7 @@ function _paragraphs_aplenty_preprocess_aplenty_heading(&$variables) {
     '#markup' => $subheading,
     '#suffix' => '</h3>',
   );
+
   $alignment = (string) field_get_value($variables['paragraphs_item'], 'field_aplenty_alignment');
   if ($alignment) {
     $variables['classes_array'][] = $alignment;
