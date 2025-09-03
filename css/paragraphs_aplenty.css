@@ -227,6 +227,10 @@
   padding: 0 var(--spacer);
 }
 
+.aplenty-card .aplenty-button {
+  margin-right: 0;
+}
+
 /**
  * Alignment: cards, etc
  */
