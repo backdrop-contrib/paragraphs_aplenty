@@ -33,8 +33,8 @@
   padding-left: var(--spacer);
 }
 
-.container .paragraphs-item:first-child>.content,
-.container-fluid .paragraphs-item:first-child>.content {
+.container .paragraphs-item:first-child:not(.aplenty--background)>.content,
+.container-fluid .paragraphs-item:first-child:not(.aplenty--background)>.content {
   /* .container already adds padding */
   padding-right: 0;
   padding-left: 0;
