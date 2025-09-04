@@ -25,6 +25,22 @@
 }
 
 /**
+ * Default padding with no .container.
+ */
+.paragraphs-item:first-child>.content {
+  /* Add padding if using a full bleed layout with no .container */
+  padding-right: var(--spacer);
+  padding-left: var(--spacer);
+}
+
+.container .paragraphs-item:first-child>.content,
+.container-fluid .paragraphs-item:first-child>.content {
+  /* .container already adds padding */
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/**
  * Accordion
  */
 .aplenty-accordion>.content {
@@ -57,6 +73,11 @@
   transition: min-height 0.25s;
   will-change: min-height;
   background-size: cover;
+}
+
+.paragraphs-item.aplenty-hero>.content {
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .aplenty-hero .aplenty-hero-callout {
@@ -130,17 +151,6 @@
 .aplenty-grid>.content {
   padding-top: var(--spacer);
   padding-bottom: var(--spacer);
-}
-.aplenty-grid>.content {
-  /* Add padding if using a full bleed layout with no .container. */
-  padding-right: var(--spacer);
-  padding-left: var(--spacer);
-}
-.container .aplenty-grid>.content,
-.container-fluid .aplenty-grid>.content {
-  /* .container already adds padding */
-  padding-right: 0;
-  padding-left: 0;
 }
 
 /**
