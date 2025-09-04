@@ -579,7 +579,14 @@ function _paragraphs_aplenty_row_class() {
 function _paragraphs_aplenty_preprocess_grid_column_prefixes(&$variables, $width_class) {
   $grid_prefix = settings_get('paragraphs_aplenty_grid_class_prefix', 'g-col');
   $grid_breakpoint = settings_get('paragraphs_aplenty_grid_breakpoint', 'md');
+  $grid_small_breakpoint = settings_get('paragraphs_aplenty_grid_small_breakpoint', 'sm');
+  $width_small_class = $width_class * 2;
+  if ($width_small_class == 8 || $width_small_class > 12) {
+    $width_small_class = 12;
+  }
+
   $variables['classes_array'][] = "{$grid_prefix}-12";
+  $variables['classes_array'][] = "{$grid_prefix}-{$grid_small_breakpoint}-{$width_small_class}";
   $variables['classes_array'][] = "{$grid_prefix}-{$grid_breakpoint}-{$width_class}";
 }
 
