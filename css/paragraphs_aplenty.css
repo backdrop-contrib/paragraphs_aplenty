@@ -35,7 +35,8 @@
 
 .container .paragraphs-item:first-child:not(.aplenty--background)>.content,
 .container-fluid .paragraphs-item:first-child:not(.aplenty--background)>.content {
-  /* .container already adds padding */
+  /* .container already adds padding so cancel padding, except if
+     using background provided by paragraphs_aplenty_classy sub-module. */
   padding-right: 0;
   padding-left: 0;
 }
