@@ -131,6 +131,17 @@
   padding-top: var(--spacer);
   padding-bottom: var(--spacer);
 }
+.aplenty-grid>.content {
+  /* Add padding if using a full bleed layout with no .container. */
+  padding-right: var(--spacer);
+  padding-left: var(--spacer);
+}
+.container .aplenty-grid>.content,
+.container-fluid .aplenty-grid>.content {
+  /* .container already adds padding */
+  padding-right: 0;
+  padding-left: 0;
+}
 
 /**
  * Media block
