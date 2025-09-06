@@ -37,6 +37,7 @@
 .aplenty--width.w-medium>.content,
 .aplenty--width.w-large>.content, /* Kept for BW */
 .aplenty--width.w-wide>.content,
+.aplenty--width.w-xwide>.content,
 .aplenty--width.w-full>.content {
   position: relative;
   min-height: 1px;
@@ -63,8 +64,9 @@
     max-width: 34rem;
   }
 
-  /* Allow full to be a bit wider than the "container" */
-  .aplenty--width.w-full>.content:not(.container *) {
+  /* Allow X-Large to overflow the "container" if using a
+     full-width/fluid layout. */
+  .aplenty--width.w-xwide>.content:not(.container *) {
     flex: 0 0 100%;
     max-width: 45rem;
   }
@@ -110,7 +112,12 @@
     max-width: 45rem;
   }
 
-  .aplenty--width.w-full>.content:not(.container *) {
+  .aplenty--width.w-xwide>.content {
+    flex: 0 0 90%;
+    max-width: 90%;
+  }
+
+  .aplenty--width.w-xwide>.content:not(.container *) {
     flex: 0 0 100%;
     max-width: 60rem;
   }
@@ -118,30 +125,41 @@
 
 @media (min-width: 62em) {
   .aplenty--width.w-medium>.content:not(.container *) {
+    flex: 0 0 66.666667%;
     max-width: 60rem;
   }
   .aplenty--width.w-large>.content:not(.container *),
   .aplenty--width.w-wide>.content:not(.container *) {
-    flex: 0 0 83.333333%;
+    flex: 0 0 100%;
     max-width: 60rem;
   }
 
-  .aplenty--width.w-full>.content:not(.container *) {
+  .aplenty--width.w-xwide>.content:not(.container *) {
     flex: 0 0 100%;
     max-width: 72.25rem;
   }
 }
 
 @media (min-width: 75em) {
+  .aplenty--width.w-medium>.content:not(.container *) {
+    flex: 0 0 66.666667%;
+    max-width: 72.25rem;
+  }
+
   .aplenty--width.w-large>.content:not(.container *),
   .aplenty--width.w-wide>.content:not(.container *) {
     flex: 0 0 100%;
     max-width: 72.25rem;
   }
 
-  .aplenty--width.w-full>.content:not(.container *) {
+  .aplenty--width.w-xwide>.content:not(.container *) {
     flex: 0 0 100%;
-    max-width: 85rem; /* Next theoretical breakpoint 87em */
+    max-width: 85rem; 
+    /* Set it to the "next" breakpoint: ~87em, which is not in
+       the core layout grid which is based on Bootstrap 3, but
+       appears in Bootstrap 5.
+       @see https://getbootstrap.com/docs/5.3/layout/breakpoints.
+    */
   }
 }
 
