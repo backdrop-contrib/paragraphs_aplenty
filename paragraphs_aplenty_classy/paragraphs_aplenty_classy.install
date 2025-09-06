@@ -366,3 +366,29 @@ function _paragraphs_aplenty_classy_styles() {
 
   return array($sets, $styles);
 }
+
+/**
+ * Add X-Large option to Width class.
+ */
+function paragraphs_aplenty_classy_update_1000() {
+  $config = config('classy_paragraphs_ui.classes');
+  $data = $config->getData();
+  if (isset($data['w-xwide'])) {
+    return;
+  }
+
+  foreach ($data as $key => $value) {
+    $new_data[$key] = $value;
+    if ($key == 'w-wide') {
+      $new_data['w-xwide'] = array(
+        'name' => 'w-xwide',
+        'label' => 'X-Large',
+        'sets' => array(
+          'aplenty--width' => 'aplenty--width',
+        )
+      );
+    }
+    $config->setData($new_data);
+  }
+  $config->save();
+}
