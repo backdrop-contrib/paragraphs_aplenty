@@ -150,6 +150,10 @@
   background-color: rgba(var(--rgba-white), var(--bg-opacity-strong)) !important;
 }
 
+.aplenty--background.b-rgba-blue-full > .content > .aplenty-hero-callout {
+  background-color: rgba(var(--rgba-blue), var(--bg-opacity-full)) !important;
+}
+
 .aplenty--background.b-rgba-red-full > .content > .aplenty-hero-callout {
   background-color: rgba(var(--rgba-red), var(--bg-opacity-full)) !important;
 }
