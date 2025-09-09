@@ -181,6 +181,10 @@
   background-color: rgba(var(--rgba-white), var(--bg-opacity-strong)) !important;
 }
 
+.aplenty--background.b-rgba-blue-full {
+  background-color: rgba(var(--rgba-blue), var(--bg-opacity-full)) !important;
+}
+
 .aplenty--background.b-rgba-red-full {
   background-color: rgba(var(--rgba-red), var(--bg-opacity-full)) !important;
 }
