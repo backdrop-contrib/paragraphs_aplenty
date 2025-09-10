@@ -290,27 +290,27 @@
  * Brand colours
  *   Copy into the active theme and customize as needed.
  */
-.aplenty--background.b-primary >.content>.aplenty-hero-callout {
+.aplenty--background.b-primary > .content > .aplenty-hero-callout {
   background-color: rgba(var(--rgba-blue), var(--bg-opacity-light)) !important;
 }
 
-.aplenty--background.b-secondary >.content>.aplenty-hero-callout {
+.aplenty--background.b-secondary > .content > .aplenty-hero-callout {
   background-color: rgba(var(--rgba-grey), var(--bg-opacity-light)) !important;
 }
 
-.aplenty--background.b-info >.content>.aplenty-hero-callout {
+.aplenty--background.b-info > .content > .aplenty-hero-callout {
   background-color: rgba(var(--rgba-cyan), var(--bg-opacity-light)) !important;
 }
 
-.aplenty--background.b-success >.content>.aplenty-hero-callout {
+.aplenty--background.b-success > .content > .aplenty-hero-callout {
   background-color: rgba(var(--rgba-green), var(--bg-opacity-light)) !important;
 }
 
-.aplenty--background.b-warning >.content>.aplenty-hero-callout {
+.aplenty--background.b-warning > .content > .aplenty-hero-callout {
   background-color: rgba(var(--rgba-yellow), var(--bg-opacity-light)) !important;
 }
 
-.aplenty--background.b-danger >.content>.aplenty-hero-callout {
+.aplenty--background.b-danger > .content > .aplenty-hero-callout {
   background-color: rgba(var(--rgba-red), var(--bg-opacity-light)) !important;
 }
 
