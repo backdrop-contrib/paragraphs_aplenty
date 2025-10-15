@@ -54,4 +54,32 @@ function paragraphs_aplenty_gallery_install() {
     'cardinality' => '-1',
   ));
 
+  // If Paragraphs Aplenty Classy is enabled.
+  if (module_exists('paragraphs_aplenty_classy')) {
+    list($sets, $styles) = _paragraphs_aplenty_classy_styles();
+
+    $paragraph_types['aplenty_gallery'] = array(
+      'background',
+      'width',
+      'margin',
+      'padding',
+    );
+
+    foreach ($paragraph_types as $bundle => $paragraph_sets) {
+      $fields = array();
+      foreach ($paragraph_sets as $set_key) {
+        $instance_overrides = array(
+          'label' => $sets[$set_key],
+          'settings' => array(
+            'classy_paragraphs_set' => 'aplenty--' . $set_key,
+            'classy_paragraphs_set_include' => 1,
+          ),
+        );
+        _paragraphs_aplenty_classy_add_class_field('field_aplenty_classy_' . $set_key, $bundle, $instance_overrides, array());
+        $fields[] = 'field_aplenty_classy_' . $set_key;
+      }
+      _paragraphs_aplenty_classy_add_field_group($fields, $bundle);
+    }
+  }
+
 }
