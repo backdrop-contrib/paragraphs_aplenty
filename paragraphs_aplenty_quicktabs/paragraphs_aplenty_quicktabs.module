@@ -13,6 +13,9 @@ function paragraphs_aplenty_quicktabs_preprocess_paragraphs_item(&$variables) {
     return;
   }
 
+  $path = backdrop_get_path('module', 'paragraphs_aplenty_quicktabs');
+  backdrop_add_css($path . '/css/paragraphs_aplenty_quicktabs.css');
+
   $variables['classes_array'][] = 'aplenty-quicktabs';
 
   $variables['aplenty_quicktab_items'] = array();

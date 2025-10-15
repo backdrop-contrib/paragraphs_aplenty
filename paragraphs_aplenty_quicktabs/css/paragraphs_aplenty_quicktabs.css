@@ -1,0 +1,12 @@
+/**
+ * Quicktabs
+ */
+
+/**
+ * Set a default background to tabs when using Aplenty Classy.
+ */
+.paragraphs-item-aplenty-quicktabs.aplenty--background .quicktabs-tabpage {
+  background-color: white;
+  color: black;
+}
+
