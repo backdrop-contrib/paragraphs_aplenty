@@ -109,8 +109,8 @@ function _paragraphs_aplenty_preprocess_aplenty_media_list(&$variables) {
  */
 function _paragraphs_aplenty_preprocess_aplenty_media_block(&$variables) {
   $variables['classes_array'][] = 'aplenty-media_block';
-  $width_class = _paragraphs_aplenty_get_width_class($variables['paragraphs_item']->hostEntity(), 'field_aplenty_media_width');
-  _paragraphs_aplenty_preprocess_grid_column_prefixes($variables, $width_class);
+  list($width_class, $width_small_class) = _paragraphs_aplenty_get_width_class($variables['paragraphs_item']->hostEntity(), 'field_aplenty_media_width');
+  _paragraphs_aplenty_preprocess_grid_column_prefixes($variables, $width_class, $width_small_class);
 
   if ($variables['paragraphs_item']->hostEntity()) {
     $variables['elements']['#aplenty_media_class'] =  _paragraphs_aplenty_get_media_class($variables['paragraphs_item']->hostEntity());
@@ -128,8 +128,8 @@ function _paragraphs_aplenty_preprocess_aplenty_media_block(&$variables) {
 function _paragraphs_aplenty_preprocess_aplenty_card(&$variables) {
   $paragraph = $variables['paragraphs_item'];
   $variables['classes_array'][] = 'aplenty-card';
-  $width_class = _paragraphs_aplenty_get_width_class($variables['paragraphs_item']->hostEntity(), 'field_aplenty_card_width');
-  _paragraphs_aplenty_preprocess_grid_column_prefixes($variables, $width_class);
+  list($width_class, $width_small_class) = _paragraphs_aplenty_get_width_class($variables['paragraphs_item']->hostEntity(), 'field_aplenty_card_width');
+  _paragraphs_aplenty_preprocess_grid_column_prefixes($variables, $width_class, $width_small_class);
 
   $card_alignment = field_get_value($variables['paragraphs_item']->hostEntity(), 'field_aplenty_card_alignment');
   if ($card_alignment) {
@@ -299,6 +299,8 @@ function _paragraphs_aplenty_preprocess_aplenty_hero(&$variables) {
  *
  * @param int $denominator
  *   The bottom part of the fraction.
+ *
+ * @return string
  */
 function _paragraphs_aplenty_fraction_to_class($numerator, $denominator) {
   if ($numerator == $denominator) {
@@ -366,7 +368,9 @@ function _paragraphs_aplenty_preprocess_aplenty_grid(&$variables) {
   foreach ($columns as $key => $column_id) {
     // Copy them to another variable as a quick way to avoid printing
     // the field wrapper.
-    $variables['aplenty_columns'][] = $variables['content']['field_aplenty_paragraphs'][$key];
+    if (isset($variables['content']['field_aplenty_paragraphs'][$key])) {
+      $variables['aplenty_columns'][] = $variables['content']['field_aplenty_paragraphs'][$key];
+    }
   }
   $variables['aplenty_row_class'] = _paragraphs_aplenty_row_class();
 }
@@ -375,18 +379,18 @@ function _paragraphs_aplenty_preprocess_aplenty_grid(&$variables) {
  * Preprocessing code for the Column bundle.
  */
 function _paragraphs_aplenty_preprocess_aplenty_column(&$variables) {
-  $width_class = _paragraphs_aplenty_get_grid_width_class($variables['paragraphs_item']->hostEntity());
-  _paragraphs_aplenty_preprocess_grid_column_prefixes($variables, $width_class);
+  list($width_class, $width_small_class) = _paragraphs_aplenty_get_grid_width_class($variables['paragraphs_item']->hostEntity());
+  _paragraphs_aplenty_preprocess_grid_column_prefixes($variables, $width_class, $width_small_class);
 }
 
 /**
  * Preprocessing code for the Column Wrapper bundle.
  */
 function _paragraphs_aplenty_preprocess_aplenty_column_wrapper(&$variables) {
-  $width_class = _paragraphs_aplenty_get_grid_width_class($variables['paragraphs_item']->hostEntity());
-  _paragraphs_aplenty_preprocess_grid_column_prefixes($variables, $width_class);
+  list($width_class, $width_small_class) = _paragraphs_aplenty_get_grid_width_class($variables['paragraphs_item']->hostEntity());
+  _paragraphs_aplenty_preprocess_grid_column_prefixes($variables, $width_class, $width_small_class);
 
-  $variables['cards'] = array();
+  $variables['column_items'] = array();
   if (empty($variables['content']['field_aplenty_paragraphs'])) {
     return;
   }
@@ -480,22 +484,24 @@ function _paragraphs_aplenty_get_media_class($paragraph) {
  *
  * @param ParagraphsItemEntity $paragraph
  * @param string $field_name
- * @return string
- *   The css class
+ * @return array
+ *   Array of the regular breakpoint width plus the small breakpoint width.
  */
 function _paragraphs_aplenty_get_width_class($paragraph, $field_name) {
   $width_class = &backdrop_static('width_class_' . $paragraph->id());
-  if (isset($width_class)) {
-    return $width_class;
+  $width_small_class = &backdrop_static('width_small_class_' . $paragraph->id());
+  if (isset($width_class) && isset($width_small_class)) {
+    return array($width_class, $width_small_class);
   }
-  $width_class = '12';
+  $width_class = $width_small_class = '12';
   $num_cards = (int) field_get_value($paragraph, $field_name);
-  // The numerator is always 1.
+  // The numerator is always 1 for the regular breakpoint and 2 for the small.
   if ($num_cards) {
-    $width_class = _paragraphs_aplenty_fraction_to_class(1, $num_cards);
+    $width_class = _paragraphs_aplenty_fraction_to_class(1, (int) $num_cards);
+    $width_small_class = _paragraphs_aplenty_fraction_to_class(1, (int) ($num_cards / 2));
   }
 
-  return $width_class;
+  return array($width_class, $width_small_class);
 }
 
 /**
@@ -532,8 +538,8 @@ function _paragraphs_aplenty_calculate_grid_column($paragraph) {
  * Get Grid width class
  *
  * @param ParagraphsItemEntity $paragraph
- * @return string
- *   The css class.
+ * @return array
+ *   The array of css classes for the regular breakpoint and the small breakpoint.
  */
 function _paragraphs_aplenty_get_grid_width_class($paragraph) {
   $column_iteration = &backdrop_static('column_iteration_' . $paragraph->id());
@@ -554,7 +560,12 @@ function _paragraphs_aplenty_get_grid_width_class($paragraph) {
   }
   $column_iteration++;
 
-  return _paragraphs_aplenty_fraction_to_class($numerator, $max_columns);
+  // The column at small breakpoint takes up double the width compared to
+  // the regular breakpoint.
+  return array(
+    _paragraphs_aplenty_fraction_to_class((int) $numerator, (int) $max_columns),
+    _paragraphs_aplenty_fraction_to_class((int) $numerator, (int) ($max_columns / 2)),
+  );
 }
 
 /**
@@ -573,17 +584,14 @@ function _paragraphs_aplenty_row_class() {
 /**
  * Add the grid column prefixes
  *
- * @param $variables
- * @param string $width_class
+ * @param array $variables
+ * @param int $width_class
+ * @param int $width_small_class
  */
-function _paragraphs_aplenty_preprocess_grid_column_prefixes(&$variables, $width_class) {
+function _paragraphs_aplenty_preprocess_grid_column_prefixes(&$variables, $width_class, $width_small_class) {
   $grid_prefix = settings_get('paragraphs_aplenty_grid_class_prefix', 'g-col');
   $grid_breakpoint = settings_get('paragraphs_aplenty_grid_breakpoint', 'md');
   $grid_small_breakpoint = settings_get('paragraphs_aplenty_grid_small_breakpoint', 'sm');
-  $width_small_class = $width_class * 2;
-  if ($width_small_class == 8 || $width_small_class > 12) {
-    $width_small_class = 12;
-  }
 
   $variables['classes_array'][] = "{$grid_prefix}-12";
   $variables['classes_array'][] = "{$grid_prefix}-{$grid_small_breakpoint}-{$width_small_class}";
@@ -593,7 +601,7 @@ function _paragraphs_aplenty_preprocess_grid_column_prefixes(&$variables, $width
 /**
  * Helper function to get the required fields for each type.
  *
- * @return
+ * @return array
  *   A nested array of bundles to required field names.
  */
 function _paragraphs_aplenty_get_required_fields() {
