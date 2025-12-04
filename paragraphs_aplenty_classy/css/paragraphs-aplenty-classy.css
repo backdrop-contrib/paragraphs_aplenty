@@ -8,3 +8,13 @@
 @import url('paragraphs-aplenty-classy-colors.css');
 /* Background colors for Hero blocks */
 @import url('paragraphs-aplenty-classy-colors-hero.css');
+
+/**
+ * Paragraphs Admin
+ */
+
+/* Styles details - make more compact */
+form details.group-aplenty-styles .details-child-wrapper {
+  display: flex;
+  gap: 1em;
+}
