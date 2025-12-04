@@ -97,9 +97,11 @@ function _paragraphs_aplenty_preprocess_aplenty_media_list(&$variables) {
     return;
   }
 
-  $media_blocks = field_get_values($variables['paragraphs_item'], 'field_aplenty_paragraphs');
-  foreach ($media_blocks as $key => $column_id) {
-    $variables['aplenty_media_list'][] = $variables['content']['field_aplenty_paragraphs'][$key];
+  $variables['aplenty_media_list'] = array();
+  if (!empty($variables['content']['field_aplenty_paragraphs'])) {
+    foreach (element_children($variables['content']['field_aplenty_paragraphs']) as $key) {
+      $variables['aplenty_media_list'][] = $variables['content']['field_aplenty_paragraphs'][$key];
+    }
   }
   $variables['aplenty_row_class'] = _paragraphs_aplenty_row_class();
 }
@@ -195,12 +197,11 @@ function _paragraphs_aplenty_preprocess_aplenty_cards(&$variables) {
   }
   $variables['classes_array'][] = $card_style_class;
 
-  $cards = field_get_values($variables['paragraphs_item'], 'field_aplenty_paragraphs');
-
-  foreach ($cards as $key => $card_id) {
-    // Copy them to another variable as a quick way to avoid printing
-    // the field wrapper.
-    $variables['aplenty_cards'][] = $variables['content']['field_aplenty_paragraphs'][$key];
+  $variables['aplenty_cards'] = array();
+  if (!empty($variables['content']['field_aplenty_paragraphs'])) {
+    foreach (element_children($variables['content']['field_aplenty_paragraphs']) as $key) {
+      $variables['aplenty_cards'][] = $variables['content']['field_aplenty_paragraphs'][$key];
+    }
   }
   $variables['aplenty_row_class'] = _paragraphs_aplenty_row_class();
 }
@@ -364,11 +365,9 @@ function _paragraphs_aplenty_preprocess_aplenty_grid(&$variables) {
 
   $variables['classes_array'][] = 'aplenty-grid';
 
-  $columns = field_get_values($variables['paragraphs_item'], 'field_aplenty_paragraphs');
-  foreach ($columns as $key => $column_id) {
-    // Copy them to another variable as a quick way to avoid printing
-    // the field wrapper.
-    if (isset($variables['content']['field_aplenty_paragraphs'][$key])) {
+  $variables['aplenty_columns'] = array();
+  if (!empty($variables['content']['field_aplenty_paragraphs'])) {
+    foreach (element_children($variables['content']['field_aplenty_paragraphs']) as $key) {
       $variables['aplenty_columns'][] = $variables['content']['field_aplenty_paragraphs'][$key];
     }
   }
@@ -423,8 +422,13 @@ function _paragraphs_aplenty_preprocess_aplenty_accordion(&$variables) {
 
   if (field_get_value($variables['paragraphs_item'], 'field_aplenty_accordion_expand')) {
     $accordion_items = field_get_values($variables['paragraphs_item'], 'field_aplenty_paragraphs');
-    $first_id = reset($accordion_items);
-    $variables['content']['field_aplenty_paragraphs'][0]['entity']['paragraphs_item'][$first_id]['#aplenty_expand'] = TRUE;
+    // Check each item since it's possible the first accordion item is
+    // unpublished.
+    foreach ($accordion_items as $accordion_key) {
+      if (isset($variables['content']['field_aplenty_paragraphs'][0]['entity']['paragraphs_item'][$accordion_key])) {
+        $variables['content']['field_aplenty_paragraphs'][0]['entity']['paragraphs_item'][$accordion_key]['#aplenty_expand'] = TRUE;
+      }
+    }
   }
 
   // Copy to a separate variable for easy rendering without field markup.
@@ -520,7 +524,14 @@ function _paragraphs_aplenty_calculate_grid_column($paragraph) {
 
   $max_columns = (int) field_get_value($paragraph, 'field_aplenty_column_width');
   $columns = field_get_values($paragraph, 'field_aplenty_paragraphs');
-  $num_columns = count($columns);
+  // Load each paragraph entity to check for published status.
+  $entities = paragraphs_item_load_multiple($columns);
+  $num_columns = 0;
+  foreach ($entities as $key => $entity) {
+    if ($entity->status) {
+      $num_columns++;
+    }
+  }
 
   if ($num_columns > $max_columns) {
     $num_columns = $max_columns;
