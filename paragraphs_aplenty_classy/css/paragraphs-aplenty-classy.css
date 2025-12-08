@@ -17,4 +17,5 @@
 form details.group-aplenty-styles .details-child-wrapper {
   display: flex;
   gap: 1em;
+  flex-wrap: wrap;
 }
